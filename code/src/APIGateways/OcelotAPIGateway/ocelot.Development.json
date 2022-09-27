@@ -1,0 +1,243 @@
+{
+  "Routes": [
+
+    //catalog_api/Products
+    {
+      "DownstreamPathTemplate": "/catalog_api/Products",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5170
+        }
+      ],
+      "UpstreamPathTemplate": "/catalog_api/Products",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 1,
+        "Limit": 5
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/catalog_api/Products/GetAll",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5170
+        }
+      ],
+      "UpstreamPathTemplate": "/catalog_api/Products/GetAll",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 1,
+        "Limit": 5
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      }
+    },
+    //catalog_api/Products?name={name}
+    {
+      "DownstreamPathTemplate": "/catalog_api/Products?name={name}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5170
+        }
+      ],
+      "UpstreamPathTemplate": "/catalog_api/Products?name={name}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 1,
+        "Limit": 5
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      }
+    },
+    //catalog_api/Products?id={id}
+    {
+      "DownstreamPathTemplate": "/catalog_api/Products?id={id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5170
+        }
+      ],
+      "UpstreamPathTemplate": "/catalog_api/Products?id={id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 1,
+        "Limit": 5
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      }
+    },
+    //catalog_api/Categories?id={id}
+    {
+      "DownstreamPathTemplate": "/catalog_api/Categories?id={id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5170
+        }
+      ],
+      "UpstreamPathTemplate": "/catalog_api/Categories?id={id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 1,
+        "Limit": 5
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      }
+    },
+    //catalog_api/Categories
+    {
+      "DownstreamPathTemplate": "/catalog_api/Categories",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5170
+        }
+      ],
+      "UpstreamPathTemplate": "/catalog_api/Categories",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 1,
+        "Limit": 5
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      }
+    },
+    //basket_api/Baskets/{everything}
+    {
+      "DownstreamPathTemplate": "/basket_api/Baskets/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5171
+        }
+      ],
+      "UpstreamPathTemplate": "/basket_api/Baskets/{everything}",
+      "UpstreamHttpMethod": [ "GET", "DELETE", "POST" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 1,
+        "Limit": 5
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      }
+    },
+    //orders_api/Orders/{everything}
+    {
+      "DownstreamPathTemplate": "/orders_api/Orders/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5172
+        }
+      ],
+      "UpstreamPathTemplate": "/orders_api/Orders/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      },
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    },
+    //user_api/Users/{everything}
+    {
+      "DownstreamPathTemplate": "/users_api/Users/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5173
+        }
+      ],
+      "UpstreamPathTemplate": "/users_api/Users/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 1,
+        "Limit": 5
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      },
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    },
+    //user_api/Wallet/{everything}
+    {
+      "DownstreamPathTemplate": "/users_api/Wallet/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5173
+        }
+      ],
+      "UpstreamPathTemplate": "/users_api/Wallet/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 1,
+        "Limit": 5
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      },
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5010"
+  }
+}

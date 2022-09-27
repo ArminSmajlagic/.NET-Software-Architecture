@@ -1,0 +1,144 @@
+version: "3.8"
+
+services: 
+  catalogdb:
+    image: mongo
+    container_name: catalogdb
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodbdata:/data/db
+
+  basketdb:
+    image: redis:alpine
+    restart: unless-stopped
+    container_name: basketdb
+    ports:
+      - 6379:6379
+
+  orderdb:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    container_name: orderdb
+    restart: unless-stopped
+    environment:
+     - ACCEPT_EULA=Y
+     - MSSQL_PID=Developer
+     - SA_PASSWORD=Qwertz123
+    ports:
+      - 1433:1433
+
+  usersdb:
+    image: postgres
+    container_name: usersdb 
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=Qwertz123
+      - POSTGRES_DB=UserDb
+    restart: unless-stopped
+    ports:
+        - 5432:5432
+    volumes:
+      - postgresdata:/var/lib/postgresql/data/
+
+  pgadmin:
+    image: dpage/pgadmin4  
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@aspnetrun.com
+      - PGADMIN_DEFAULT_PASSWORD=Qwertz123
+    restart: unless-stopped
+    ports:
+        - 5050:80
+    volumes:
+      - pgadmindata:/root/.pgadmin
+
+  portainer:
+    image: portainer/portainer-ce
+    container_name: portainer
+    restart: unless-stopped
+    ports:
+      - 8080:8000
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainerdata:/data
+
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.1
+    environment:
+        - xpack.monitoring.enabled=true
+        - xpack.watcher.enabled=false
+        - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+        - discovery.type=single-node
+    ports:
+        - "9200:9200"
+    volumes:
+        - elasticsearchdata:/usr/share/elasticsearch/data 
+    networks:
+        - elknetwork
+
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:7.16.1
+    environment:        
+        - ELASTICSEARCH_URL=http://elasticsearch:9200
+    ports:
+        - "5601:5601" 
+    depends_on:
+        - elasticsearch
+    networks:
+        - elknetwork
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    restart: always
+    ports:
+        - "5672:5672"
+        - "15672:15672"
+        
+  logstash:
+    container_name: logstash
+    image: docker.elastic.co/logstash/logstash:7.13.0
+    ports:
+      - "5044:5044"
+      - "5000:5000"
+      - "9600:9600"
+    #configs:
+    #  - source: logstash_config
+    #    target: /usr/share/logstash/config/logstash.yml
+    #  - source: logstash_pipeline
+    #    target: /usr/share/logstash/pipeline/logstash.conf
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    deploy:
+      mode: replicated
+      replicas: 1
+    depends_on:
+      - elasticsearch
+    networks:
+      - elknetwork
+
+#configs:
+
+#  elastic_config:
+#    file: ./elasticsearch/config/elasticsearch.yml
+#  logstash_config:
+#    file: ./logstash/config/logstash.yml
+#  logstash_pipeline:
+#    file: ./logstash/pipeline/logstash.conf
+#  kibana_config:
+#    file: ./kibana/config/kibana.yml
+
+volumes:
+  mongodbdata:
+  postgresdata:
+  portainerdata:
+  pgadmindata:
+  elasticsearchdata:
+
+networks:
+  elknetwork:
+    driver: bridge

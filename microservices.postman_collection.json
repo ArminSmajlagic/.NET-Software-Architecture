@@ -1,0 +1,1051 @@
+{
+	"info": {
+		"_postman_id": "39678a55-911f-4616-8586-9fe8901f80e0",
+		"name": "microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "catalog_api",
+			"item": [
+				{
+					"name": "categories",
+					"item": [
+						{
+							"name": "GetAllCategories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5010/catalog_api/categories?id=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"catalog_api",
+										"categories"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "products",
+					"item": [
+						{
+							"name": "PostProduct",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"image\": \"string\",\r\n  \"price\": 0,\r\n  \"category_id\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5010/catalog_api/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"catalog_api",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllProducts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5010/catalog_api/products/getall?name=string",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"catalog_api",
+										"products",
+										"getall"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteProduct",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:5000/catalog_api/products?id=4",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"catalog_api",
+										"products"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateProduct",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"1\",\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"image\": \"string\",\r\n  \"price\": 0,\r\n  \"category_id\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5010/catalog_api/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"catalog_api",
+										"products"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "users_api",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "GetAllUsers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5010/users_api/Users/GetAllUsers?username=&firstname=string&country=string",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"users_api",
+										"Users",
+										"GetAllUsers"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": ""
+										},
+										{
+											"key": "firstname",
+											"value": "string"
+										},
+										{
+											"key": "country",
+											"value": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetUserById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5010/users_api/Users/GetUserById?id=4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"users_api",
+										"Users",
+										"GetUserById"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetUserByUsername",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5010/users_api/Users/GetUserByUsername?username=string",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"users_api",
+										"Users",
+										"GetUserByUsername"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"string\",\r\n  \"password\": \"string\",\r\n  \"first_name\": \"string\",\r\n  \"last_name\": \"string\",\r\n  \"country\": \"string\",\r\n  \"zip_code\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5010/users_api/Users/InsertUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"users_api",
+										"Users",
+										"InsertUser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteUser",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5010/users_api/Users/DeleteUser?id=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"users_api",
+										"Users",
+										"DeleteUser"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateUser",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " { \"id\": 4,\r\n  \"username\": \"strinasdasdg\",\r\n  \"password\": \"string\",\r\n  \"first_name\": \"string\",\r\n  \"last_name\": \"string\",\r\n  \"country\": \"string\",\r\n  \"zip_code\": \"string\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5010/users_api/Users/UpdateUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"users_api",
+										"Users",
+										"UpdateUser"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Wallet",
+					"item": [
+						{
+							"name": "GetAllWallets",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5010/users_api/Wallet/GetAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"users_api",
+										"Wallet",
+										"GetAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetWalletById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5010/users_api/Wallet/GetById?id=7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"users_api",
+										"Wallet",
+										"GetById"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "7"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostWallet",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"string\",\r\n  \"password\": \"string\",\r\n  \"first_name\": \"string\",\r\n  \"last_name\": \"string\",\r\n  \"country\": \"string\",\r\n  \"zip_code\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5010/users_api/Users/InsertUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"users_api",
+										"Users",
+										"InsertUser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteWallet",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5010/users_api/Wallet/DeleteWallet?id=8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"users_api",
+										"Wallet",
+										"DeleteWallet"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateWallet",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"id\": 8,\r\n    \"card_name\": \"string\",\r\n    \"card_number\": \"string\",\r\n    \"cvv\": \"string\",\r\n    \"expiration\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5010/users_api/Wallet/UpdateWallet",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5010",
+									"path": [
+										"users_api",
+										"Wallet",
+										"UpdateWallet"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "orders api/Orders",
+			"item": [
+				{
+					"name": "/orders_api/Orders/GetOrders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/orders_api/Orders/GetOrders?username=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"orders_api",
+								"Orders",
+								"GetOrders"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/orders_api/Orders/GetOrders?username=mollit nisi adipisicing sint sed",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"orders_api",
+										"Orders",
+										"GetOrders"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "mollit nisi adipisicing sint sed"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"username\": \"ea veniam\",\n  \"total_price\": 6348603.070820987,\n  \"user_id\": -9935721,\n  \"payment_id\": 21502717\n}"
+						}
+					]
+				},
+				{
+					"name": "/orders_api/Orders/CheckoutOrder",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"ea veniam\",\n  \"total_price\": 6348603.070820987,\n  \"user_id\": 1,\n  \"payment_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/orders_api/Orders/CheckoutOrder",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"orders_api",
+								"Orders",
+								"CheckoutOrder"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"ea veniam\",\n  \"total_price\": 6348603.070820987,\n  \"user_id\": -9935721,\n  \"payment_id\": 21502717\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/orders_api/Orders/CheckoutOrder",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"orders_api",
+										"Orders",
+										"CheckoutOrder"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/orders_api/Orders/DeleteOrder",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/orders_api/Orders/DeleteOrder?id=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"orders_api",
+								"Orders",
+								"DeleteOrder"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 48268530\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/orders_api/Orders/DeleteOrder",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"orders_api",
+										"Orders",
+										"DeleteOrder"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/orders_api/Orders/UpdateOrder",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 5,\n  \"username\": \"enim elit\",\n  \"total_price\": 159.469,\n  \"user_id\": 1,\n  \"payment_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/orders_api/Orders/UpdateOrder",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"orders_api",
+								"Orders",
+								"UpdateOrder"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 70260327,\n  \"username\": \"enim elit\",\n  \"total_price\": -39549159.469827175,\n  \"user_id\": -27250856,\n  \"payment_id\": 57998520\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/orders_api/Orders/UpdateOrder",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"orders_api",
+										"Orders",
+										"UpdateOrder"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "basket api/Baskets",
+			"item": [
+				{
+					"name": "/basket_api/Baskets/GetBasketByUsername",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/basket_api/Baskets/GetBasketByUsername?username=dolore dolor culpa ullamco",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"basket_api",
+								"Baskets",
+								"GetBasketByUsername"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "dolore dolor culpa ullamco"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/basket_api/Baskets/GetBasketByUsername?username=dolore dolor culpa ullamco",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"basket_api",
+										"Baskets",
+										"GetBasketByUsername"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "dolore dolor culpa ullamco"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/basket_api/Baskets/AddBasket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"basket\",\n  \"username\": \"cupidatat dolor consectetur\",\n  \"total_price\": 0,\n  \"items\": [\n    {\n      \"quantity\": 2,\n      \"price\": 572.2602,\n      \"product_id\": \"enim tempor anim ex\",\n      \"product_name\": \"nulla Duis laborum tempor\"\n    },\n    {\n      \"quantity\": 1,\n      \"price\": 4.799,\n      \"product_id\": \"commodo ipsum velit\",\n      \"product_name\": \"voluptate est quis consectetur dolore\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/basket_api/Baskets/AddBasket",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"basket_api",
+								"Baskets",
+								"AddBasket"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"pariatur in aliqua nostrud\",\n  \"username\": \"dolore amet\",\n  \"total_price\": 52540026.82753548,\n  \"items\": [\n    {\n      \"quantity\": 64738020,\n      \"price\": 95998597.65391153,\n      \"product_id\": \"nostrud eu\",\n      \"product_name\": \"enim proid\"\n    },\n    {\n      \"quantity\": -47960496,\n      \"price\": 53207927.825772494,\n      \"product_id\": \"qui nulla dolore quis\",\n      \"product_name\": \"consectetur adipisicing min\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/basket_api/Baskets/AddBasket",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"basket_api",
+										"Baskets",
+										"AddBasket"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/basket_api/Baskets/DeleteBasket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/basket_api/Baskets/DeleteBasket?username=dolore dolor culpa ullamco",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"basket_api",
+								"Baskets",
+								"DeleteBasket"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "dolore dolor culpa ullamco"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/basket_api/Baskets/DeleteBasket?username=dolore dolor culpa ullamco",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"basket_api",
+										"Baskets",
+										"DeleteBasket"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "dolore dolor culpa ullamco"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/basket_api/Baskets/CheckoutBasket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"Duis\",\n  \"total_price\": 86926900.20544758,\n  \"user_id\": -76991761,\n  \"payment_id\": -78772797\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/basket_api/Baskets/CheckoutBasket",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"basket_api",
+								"Baskets",
+								"CheckoutBasket"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"Duis\",\n  \"total_price\": 86926900.20544758,\n  \"user_id\": -76991761,\n  \"payment_id\": -78772797\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/basket_api/Baskets/CheckoutBasket",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"basket_api",
+										"Baskets",
+										"CheckoutBasket"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	]
+}
