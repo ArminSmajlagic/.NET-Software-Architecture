@@ -21,10 +21,17 @@ builder.Services.AddOcelot()
         x.WithDictionaryHandle()
     );
 
+//builder.Services.AddSwaggerForOcelot(builder.Configuration);
 
 var app = builder.Build();
 
 app.UseRouting();
+
+// Swagger not suported
+//app.UseSwaggerForOcelotUI(opt =>
+//{
+//    opt.PathToSwaggerGenerator = "/swagger/docs";
+//});
 
 app.UseEndpoints(endpoints =>
 {

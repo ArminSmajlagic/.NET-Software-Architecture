@@ -19,6 +19,12 @@ namespace user.application.features.users.commands.DeleteUser
         }
         public async Task<int> Handle(DeleteUserCommands request, CancellationToken cancellationToken)
         {
+            if (!cancellationToken.IsCancellationRequested)
+            {
+                logger.LogInformation($"The request has been canceled");
+
+                return 0;
+            }
             var respons = await repository.Remove(request.id);
 
             if (respons == null)

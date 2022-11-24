@@ -9,6 +9,8 @@ services:
       - 27017:27017
     volumes:
       - mongodbdata:/data/db
+    networks:
+      - catalognetwork
 
   basketdb:
     image: redis:alpine
@@ -16,17 +18,8 @@ services:
     container_name: basketdb
     ports:
       - 6379:6379
-
-  orderdb:
-    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
-    container_name: orderdb
-    restart: unless-stopped
-    environment:
-     - ACCEPT_EULA=Y
-     - MSSQL_PID=Developer
-     - SA_PASSWORD=Qwertz123
-    ports:
-      - 1433:1433
+    networks:
+      - basketnetwork
 
   usersdb:
     image: postgres
@@ -40,6 +33,39 @@ services:
         - 5432:5432
     volumes:
       - postgresdata:/var/lib/postgresql/data/
+    networks:
+      - usernetwork
+
+  orderdb:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    container_name: orderdb
+    restart: unless-stopped
+    environment:
+     - ACCEPT_EULA=Y
+     - MSSQL_PID=Developer
+     - SA_PASSWORD=Qwertz123
+    ports:
+      - 1433:1433
+    expose:
+     - 1433
+    networks:
+      - ordernetwork
+
+  order-api:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: services/orders/orders.api/Dockerfile
+    environment:
+     - ConnectionStrings:OrdersConnectionString=Server=orderdb, 1433;Database=OrderDb;User Id=sa;Password=Qwertz123;"
+    ports:
+     - 5172:80
+    networks:
+     - ordernetwork
+    links:
+     - orderdb
+    depends_on:
+     - orderdb
 
   pgadmin:
     image: dpage/pgadmin4  
@@ -52,6 +78,8 @@ services:
         - 5050:80
     volumes:
       - pgadmindata:/root/.pgadmin
+    networks:
+      - usernetwork
 
   portainer:
     image: portainer/portainer-ce
@@ -104,13 +132,7 @@ services:
     image: docker.elastic.co/logstash/logstash:7.13.0
     ports:
       - "5044:5044"
-      - "5000:5000"
       - "9600:9600"
-    #configs:
-    #  - source: logstash_config
-    #    target: /usr/share/logstash/config/logstash.yml
-    #  - source: logstash_pipeline
-    #    target: /usr/share/logstash/pipeline/logstash.conf
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     deploy:
@@ -121,16 +143,6 @@ services:
     networks:
       - elknetwork
 
-#configs:
-
-#  elastic_config:
-#    file: ./elasticsearch/config/elasticsearch.yml
-#  logstash_config:
-#    file: ./logstash/config/logstash.yml
-#  logstash_pipeline:
-#    file: ./logstash/pipeline/logstash.conf
-#  kibana_config:
-#    file: ./kibana/config/kibana.yml
 
 volumes:
   mongodbdata:
@@ -141,4 +153,12 @@ volumes:
 
 networks:
   elknetwork:
+    driver: bridge
+  basketnetwork:
+    driver: bridge
+  usernetwork:
+    driver: bridge
+  ordernetwork:
+    driver: bridge
+  catalognetwork:
     driver: bridge
