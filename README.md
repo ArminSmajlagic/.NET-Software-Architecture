@@ -9,7 +9,7 @@ To achive fast respons from database I used NoSQL such as MongoDB and Redis, and
 
 It uses DDD, Repository/CQRS with Mediator pattern in persistance and buissenes layer to access database layer and persist data. 
 
-Finaly to agregate all the services and allow users to access them uniformly i used Ocelot gateway together with many features that it provides (Caching, Req. Limiting, Balancing, Security, ...)
+Finally to agregate all the services and allow users to access them uniformly i used Ocelot gateway together with many features that it provides (Caching, Req. Limiting, Balancing, Security, ...)
 
 ## Overall view of the system
 
@@ -53,11 +53,13 @@ Finaly to agregate all the services and allow users to access them uniformly i u
 - Swagger Open API implementation
 
 ### API Gateway Ocelot Microservice :
-- Implementing API Gateways with Ocelot
-- Using data cashing 
-- Restricting requests
-- Using load balancing
+- Implementing API Gateways using Ocelot
+- Caching Resources
+- Limiting requests
+- Load Balancing
 
 Implementing Centralized Distributed Logging with Elastic Stack (ELK); Elasticsearch, Logstash, Kibana and SeriLog for Microservices
+
+Coming soon refactoring to .NET 7 & C# 11
 
 Author: Armin Smajlagić
