@@ -1,17 +1,15 @@
 
 # Microservice Architecture in ASP.NET 6
 
-
-
-This is an e-commerce project with microservice architecture implementation and variety of technologies and patterns.
+This is an eCommerce project with Microservice Architecture implementation with aid from design patterns & many technologies.
 
 Each service uses its own sub-architecture and database. 
 I have selected clean and layerd as sub-architecutres. 
-To achive fast respons from database I used NoSQL such as MongoDB and Redis, and where I needed strong realtions between entities I used MS SQL & PostgreSQL.
+To achive fast respons from database I used NoSQL such as MongoDB and Redis, and where I needed strong solid base between entities I used MS SQL & PostgreSQL.
 
-It uses DAO, repository & CQRS with Mediator pattern in persistance and buissenes layer to access database layer and persist data. 
+It uses DDD, Repository/CQRS with Mediator pattern in persistance and buissenes layer to access database layer and persist data. 
 
-Finaly to agregate all the services and allow users to access them uniformly i used Ocelot gateway together with many features that is gives
+Finaly to agregate all the services and allow users to access them uniformly i used Ocelot gateway together with many features that it provides (Caching, Req. Limiting, Balancing, Security, ...)
 
 ## Overall view of the system
 
