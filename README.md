@@ -1,3 +1,8 @@
+<p align="center">
+	<img src="https://badgen.net/badge/API version/1.0/red">
+	<img src="https://badgen.net/badge/.NET/6/cyan">
+	<img src="https://badgen.net/badge/icon/Docker?icon=docker&label">
+</p>
 
 # Microservice Architecture in ASP.NET 6
 
@@ -60,6 +65,10 @@ Finally to agregate all the services and allow users to access them uniformly i 
 
 Implementing Centralized Distributed Logging with Elastic Stack (ELK); Elasticsearch, Logstash, Kibana and SeriLog for Microservices
 
-Coming soon refactoring to .NET 7 & C# 11
+<p>
+ To run all required containers with Docker compose orchestration : 
+	
+	docker-compose up
+</p>
 
 Author: Armin Smajlagić
