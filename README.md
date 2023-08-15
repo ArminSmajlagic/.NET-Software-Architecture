@@ -25,44 +25,47 @@ Finally to agregate all the services and allow users to access them uniformly I 
 
 ## Project is consisted of the following
 
-### Catalog microservice :
-- N-tier sub-architecture
-- REST API principles, CRUD operations
-- MongoDB database connection and containerization
-- Repository Pattern Implementation
-- Swagger Open API implementation
+1️⃣ Catalog Service:
+- ✅Implemented an N-tier sub-architecture, ensuring a well-organized codebase.
+- ✅ Leveraged REST API principles for seamless communication and CRUD operations.
+- ✅ Utilized MongoDB as the database, providing high scalability.
+- ✅ Employed the Repository Pattern for efficient data access.
+- ✅ Enabled easy API testing and documentation with Swagger Open API standard.
+- ✅ Dockerized both API and Database for streamlined deployment.
 
-### Basket microservice :
-- N-tier sub-architecture
-- REST API principles, CRUD operations
-- Publish BasketCheckout Queue using MassTransit and RabbitMQ
-- Redis database connection and containerization
-- Repository Pattern Implementation
-- Swagger Open API implementation
+2️⃣ Basket Service:
+- ✅ Followed similar N-tier sub-architecture approach for maintainability.
+- ✅ Built REST API adhering to industry-standard principles.
+- ✅ Implemented MassTransit & RabbitMQ for reliable messaging.
+- ✅ Redis served as the database, delivering lightning-fast performance.
+- ✅ Repository Pattern utilized for efficient data management.
+- ✅ Ensured easy collaboration and API documentation with Swagger Open API.
+- ✅ Dockerized both API and Database for hassle-free deployments.
 
-### User microservice :
-- Implementing DDD, CQRS, and Clean Architecture
-- Using Fluent Migrator for migrating entities
-- PostgreSQL database connection and containerization
-- Using Dapper for micro-orm implementation to simplify data access and ensure high performance
-- Developing CQRS using MediatR, FluentValidation and AutoMapper
-- Swagger Open API implementation
+3️⃣ User Service:
+- ✅ Implemented a clean architecture with Domain-Driven Design (DDD) principles.
+- ✅ Utilized Fluent migrator & Dapper for smooth database migration and access.
+- ✅ PostgreSQL acted as the reliable and robust database.
+- ✅ Followed the CQRS pattern with MediatR & FluentValidation for improved separation of concerns.
+- ✅ Swagger Open API provided easy testing and documentation capabilities.
+- ✅ Leverage the power of AutoMapper for seamless mapping between objects.
 
-### Ordering Microservice :
-- Implementing DDD, CQRS, and Clean Architecture
-- Consuming RabbitMQ BasketCheckout event queue using MassTransit and RabbitMQ 
-- SqlServer database connection and containerization
-- Using Entity Framework Core ORM and auto migrate to SqlServer on application startup
-- Developing CQRS using MediatR, FluentValidation and AutoMapper
-- Swagger Open API implementation
+4️⃣ Ordering Service:
+- ✅ Adopted a clean and scalable architecture based on Domain-Driven Design (DDD).
+- ✅ Employed MassTransit & RabbitMQ for reliable messaging between services.
+- ✅ MS SQL served as the reliable and robust database.
+- ✅ Entity Framework Core ORM helped manage migrations and ensured smooth database creation.
+- ✅ Implemented CQRS pattern with MediatR & FluentValidation for flexible and maintainable code.
+- ✅ Swagger Open API facilitated easy testing and documentation.
 
-### API Gateway Ocelot Microservice :
-- Implementing API Gateways using Ocelot
-- Caching Resources
-- Limiting requests
-- Load Balancing
+To tie it all together, an API Gateway, powered by Ocelot Microservice, was integrated to provide:
+- ✅ Seamless API Gateway implementation, ensuring efficient communication between services.
+- ✅ Caching of API resources for improved performance.
+- ✅ Requests throttling, preventing system overload.
+- ✅ Load balancing for distributing traffic effectively.
 
-Implementing Centralized Distributed Logging with Elastic Stack (ELK); Elasticsearch, Logstash, Kibana and SeriLog for Microservices
+
+- Centralized Distributed Logging with Elastic Stack (ELK); Elasticsearch, Logstash, Kibana and SeriLog for Microservices
 
 <p>
  To run all required containers with Docker compose orchestration : 
