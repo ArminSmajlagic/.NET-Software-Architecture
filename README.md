@@ -7,7 +7,7 @@
 
 This is an eCommerce project with Microservice Architecture that demonstrates usage of design patterns & many technologies.
 
-Each service uses its own different sub-architecture and database to demonstrate true microservices and their potential. 
+Each service uses its different sub-architecture and database to demonstrate true microservices and their potential. 
 I have mainly used clean and layerd as sub-architecutres for each of the service. 
 To achive fast respons from database I used NoSQL such as MongoDB and Redis (as DB), and for more solid and scalable databases I used MS SQL & PostgreSQL.
 
