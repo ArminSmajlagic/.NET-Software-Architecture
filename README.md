@@ -1,20 +1,19 @@
 <p align="center">
-	<img src="https://badgen.net/badge/API version/1.0/red">
 	<img src="https://badgen.net/badge/.NET/6/cyan">
 	<img src="https://badgen.net/badge/icon/Docker?icon=docker&label">
 </p>
 
 # Microservice Architecture in ASP.NET 6
 
-This is an eCommerce project with Microservice Architecture implementation with aid from design patterns & many technologies.
+This is an eCommerce project with Microservice Architecture that demonstrates usage of design patterns & many technologies.
 
-Each service uses its own sub-architecture and database. 
-I have selected clean and layerd as sub-architecutres. 
-To achive fast respons from database I used NoSQL such as MongoDB and Redis, and where I needed strong solid base between entities I used MS SQL & PostgreSQL.
+Each service uses its own different sub-architecture and database to demonstrate true microservices and their potential. 
+I have mainly used clean and layerd as sub-architecutres for each of the service. 
+To achive fast respons from database I used NoSQL such as MongoDB and Redis (as DB), and for more solid and scalable databases I used MS SQL & PostgreSQL.
 
-It uses DDD, Repository/CQRS with Mediator pattern in persistance and buissenes layer to access database layer and persist data. 
+Project demonstrates use of DDD, Repository/CQRS with Mediator pattern in persistance and buissenes layers to access database layer and persist data. 
 
-Finally to agregate all the services and allow users to access them uniformly i used Ocelot gateway together with many features that it provides (Caching, Req. Limiting, Balancing, Security, ...)
+Finally to agregate all the services and allow users to access them uniformly I used Ocelot gateway together with many features that it provides (Caching, Req. Limiting, Load Balancing, Security, ...)
 
 ## Overall view of the system
 
@@ -71,4 +70,5 @@ Implementing Centralized Distributed Logging with Elastic Stack (ELK); Elasticse
 	docker-compose up
 </p>
 
-Author: Armin Smajlagić
+Software and ilustrations were create by me.
+Author : Armin Smajlagić
